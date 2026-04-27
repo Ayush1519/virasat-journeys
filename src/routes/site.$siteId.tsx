@@ -43,7 +43,7 @@ const tabs = [
 ] as const;
 
 function SitePage() {
-  const { site } = Route.useLoaderData();
+  const { site } = Route.useLoaderData() as { site: import("@/data/sites").HeritageSite };
   const [tab, setTab] = useState<(typeof tabs)[number]["id"]>("history");
   const [kidsMode, setKidsMode] = useState(true);
   const [speaking, setSpeaking] = useState(false);
