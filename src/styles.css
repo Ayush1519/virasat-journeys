@@ -34,21 +34,11 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-
-  /* Jharkhand palette */
-  --color-forest: var(--forest);
-  --color-forest-deep: var(--forest-deep);
-  --color-water: var(--water);
-  --color-water-deep: var(--water-deep);
-  --color-ochre: var(--ochre);
-  --color-terracotta: var(--terracotta);
+  --color-saffron: var(--saffron);
+  --color-saffron-deep: var(--saffron-deep);
+  --color-indigo-royal: var(--indigo-royal);
+  --color-gold: var(--gold);
   --color-ivory: var(--ivory);
-
-  /* Legacy aliases kept so existing components keep working */
-  --color-saffron: var(--ochre);
-  --color-saffron-deep: var(--terracotta);
-  --color-indigo-royal: var(--forest-deep);
-  --color-gold: var(--ochre);
 
   --animate-fade-in: fade-in 0.6s ease-out;
   --animate-slide-up: slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1);
@@ -60,68 +50,65 @@
 :root {
   --radius: 1rem;
 
-  --ivory: oklch(0.985 0.008 110);
-  --background: oklch(0.985 0.008 110);
-  --foreground: oklch(0.21 0.035 155);
+  --ivory: oklch(0.985 0.012 85);
+  --background: oklch(0.985 0.012 85);
+  --foreground: oklch(0.18 0.05 270);
 
-  --forest: oklch(0.5 0.13 152);
-  --forest-deep: oklch(0.29 0.07 158);
-  --water: oklch(0.64 0.1 205);
-  --water-deep: oklch(0.44 0.1 222);
-  --ochre: oklch(0.76 0.14 72);
-  --terracotta: oklch(0.6 0.16 42);
+  --saffron: oklch(0.74 0.18 55);
+  --saffron-deep: oklch(0.66 0.21 42);
+  --indigo-royal: oklch(0.28 0.14 275);
+  --gold: oklch(0.82 0.15 85);
 
-  --card: oklch(0.995 0.005 110 / 0.72);
-  --card-foreground: oklch(0.21 0.035 155);
-  --popover: oklch(0.995 0.005 110);
-  --popover-foreground: oklch(0.21 0.035 155);
+  --card: oklch(0.99 0.008 85 / 0.7);
+  --card-foreground: oklch(0.18 0.05 270);
+  --popover: oklch(0.99 0.008 85);
+  --popover-foreground: oklch(0.18 0.05 270);
 
-  --primary: oklch(0.5 0.13 152);
-  --primary-foreground: oklch(0.985 0.008 110);
-  --secondary: oklch(0.29 0.07 158);
-  --secondary-foreground: oklch(0.985 0.008 110);
+  --primary: oklch(0.74 0.18 55);
+  --primary-foreground: oklch(0.99 0.008 85);
+  --secondary: oklch(0.28 0.14 275);
+  --secondary-foreground: oklch(0.985 0.012 85);
 
-  --muted: oklch(0.94 0.014 120);
-  --muted-foreground: oklch(0.46 0.03 155);
-  --accent: oklch(0.76 0.14 72);
-  --accent-foreground: oklch(0.21 0.035 155);
+  --muted: oklch(0.94 0.015 80);
+  --muted-foreground: oklch(0.45 0.04 270);
+  --accent: oklch(0.82 0.15 85);
+  --accent-foreground: oklch(0.18 0.05 270);
 
-  --destructive: oklch(0.58 0.2 27);
-  --destructive-foreground: oklch(0.985 0.008 110);
-  --border: oklch(0.88 0.018 130);
-  --input: oklch(0.92 0.014 130);
-  --ring: oklch(0.5 0.13 152);
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(0.985 0.012 85);
+  --border: oklch(0.88 0.02 80);
+  --input: oklch(0.92 0.015 80);
+  --ring: oklch(0.74 0.18 55);
 
-  --gradient-hero: linear-gradient(135deg, oklch(0.5 0.13 152) 0%, oklch(0.44 0.1 222) 55%, oklch(0.29 0.07 158) 100%);
-  --gradient-forest: linear-gradient(135deg, oklch(0.5 0.13 152) 0%, oklch(0.29 0.07 158) 100%);
-  --gradient-water: linear-gradient(135deg, oklch(0.72 0.1 200) 0%, oklch(0.44 0.1 222) 100%);
-  --gradient-ochre: linear-gradient(135deg, oklch(0.82 0.13 82) 0%, oklch(0.6 0.16 42) 100%);
-  --gradient-warm: linear-gradient(180deg, oklch(0.985 0.008 110) 0%, oklch(0.955 0.022 125) 100%);
+  --gradient-hero: linear-gradient(135deg, oklch(0.74 0.18 55) 0%, oklch(0.66 0.21 42) 50%, oklch(0.28 0.14 275) 100%);
+  --gradient-saffron: linear-gradient(135deg, oklch(0.82 0.15 85) 0%, oklch(0.74 0.18 55) 100%);
+  --gradient-royal: linear-gradient(135deg, oklch(0.28 0.14 275) 0%, oklch(0.45 0.2 290) 100%);
+  --gradient-warm: linear-gradient(180deg, oklch(0.985 0.012 85) 0%, oklch(0.96 0.03 75) 100%);
 
-  --shadow-soft: 0 4px 20px -4px oklch(0.29 0.07 158 / 0.14);
-  --shadow-glow: 0 0 40px -8px oklch(0.5 0.13 152 / 0.45);
-  --shadow-deep: 0 20px 50px -15px oklch(0.29 0.07 158 / 0.3);
-  --shadow-card: 0 8px 30px -10px oklch(0.29 0.07 158 / 0.2);
+  --shadow-soft: 0 4px 20px -4px oklch(0.28 0.14 275 / 0.12);
+  --shadow-glow: 0 0 40px -8px oklch(0.74 0.18 55 / 0.45);
+  --shadow-deep: 0 20px 50px -15px oklch(0.28 0.14 275 / 0.25);
+  --shadow-card: 0 8px 30px -10px oklch(0.28 0.14 275 / 0.18);
 }
 
 .dark {
-  --background: oklch(0.16 0.025 160);
-  --foreground: oklch(0.96 0.012 110);
-  --card: oklch(0.22 0.035 158 / 0.6);
-  --card-foreground: oklch(0.96 0.012 110);
-  --popover: oklch(0.22 0.035 158);
-  --popover-foreground: oklch(0.96 0.012 110);
-  --primary: oklch(0.68 0.14 155);
-  --primary-foreground: oklch(0.16 0.025 160);
-  --secondary: oklch(0.36 0.08 195);
-  --secondary-foreground: oklch(0.96 0.012 110);
-  --muted: oklch(0.25 0.03 160);
-  --muted-foreground: oklch(0.74 0.025 120);
-  --accent: oklch(0.78 0.14 72);
-  --accent-foreground: oklch(0.16 0.025 160);
+  --background: oklch(0.14 0.03 270);
+  --foreground: oklch(0.96 0.015 85);
+  --card: oklch(0.2 0.04 275 / 0.6);
+  --card-foreground: oklch(0.96 0.015 85);
+  --popover: oklch(0.2 0.04 275);
+  --popover-foreground: oklch(0.96 0.015 85);
+  --primary: oklch(0.78 0.18 55);
+  --primary-foreground: oklch(0.14 0.03 270);
+  --secondary: oklch(0.35 0.15 280);
+  --secondary-foreground: oklch(0.96 0.015 85);
+  --muted: oklch(0.24 0.04 275);
+  --muted-foreground: oklch(0.72 0.03 85);
+  --accent: oklch(0.82 0.15 85);
+  --accent-foreground: oklch(0.14 0.03 270);
   --border: oklch(1 0 0 / 0.1);
   --input: oklch(1 0 0 / 0.15);
-  --ring: oklch(0.68 0.14 155);
+  --ring: oklch(0.78 0.18 55);
 }
 
 @keyframes fade-in {
@@ -140,10 +127,6 @@
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
-@keyframes ripple {
-  0% { transform: scale(0.9); opacity: 0.7; }
-  100% { transform: scale(2.2); opacity: 0; }
-}
 
 @layer base {
   * { border-color: var(--color-border); }
@@ -158,33 +141,27 @@
 
 @layer utilities {
   .glass {
-    background: oklch(1 0 0 / 0.58);
+    background: oklch(1 0 0 / 0.55);
     backdrop-filter: blur(20px) saturate(1.4);
     -webkit-backdrop-filter: blur(20px) saturate(1.4);
     border: 1px solid oklch(1 0 0 / 0.6);
   }
   .glass-dark {
-    background: oklch(0.21 0.035 155 / 0.4);
+    background: oklch(0.18 0.05 270 / 0.4);
     backdrop-filter: blur(20px) saturate(1.4);
     border: 1px solid oklch(1 0 0 / 0.1);
   }
   .gradient-hero { background: var(--gradient-hero); }
-  .gradient-forest { background: var(--gradient-forest); }
-  .gradient-water { background: var(--gradient-water); }
-  .gradient-ochre { background: var(--gradient-ochre); }
-  /* legacy aliases */
-  .gradient-saffron { background: var(--gradient-ochre); }
-  .gradient-royal { background: var(--gradient-water); }
-
+  .gradient-saffron { background: var(--gradient-saffron); }
+  .gradient-royal { background: var(--gradient-royal); }
   .text-gradient-hero {
     background: var(--gradient-hero);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
-  .text-gradient-ochre,
   .text-gradient-saffron {
-    background: var(--gradient-ochre);
+    background: var(--gradient-saffron);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -195,33 +172,18 @@
   .shadow-card { box-shadow: var(--shadow-card); }
   .hover-lift { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s; }
   .hover-lift:hover { transform: translateY(-6px); box-shadow: var(--shadow-deep); }
-
-  /* Sohrai / Khovar inspired tribal motif texture */
-  .sohrai-bg,
   .mandala-bg {
-    background-color: transparent;
-    background-image:
-      radial-gradient(circle at 20px 20px, var(--terracotta) 2.5px, transparent 3px),
-      radial-gradient(circle at 60px 60px, var(--forest-deep) 2.5px, transparent 3px),
-      linear-gradient(45deg, transparent 46%, var(--ochre) 46%, var(--ochre) 54%, transparent 54%),
-      linear-gradient(-45deg, transparent 46%, var(--ochre) 46%, var(--ochre) 54%, transparent 54%);
-    background-size: 80px 80px, 80px 80px, 40px 40px, 40px 40px;
-    opacity: 0.07;
+    background-image: url("/src/assets/mandala-pattern.png");
+    background-size: 600px;
+    background-repeat: repeat;
+    opacity: 0.06;
   }
   .shimmer-text {
-    background: linear-gradient(90deg, var(--ochre) 0%, oklch(0.9 0.09 95) 50%, var(--ochre) 100%);
+    background: linear-gradient(90deg, var(--saffron) 0%, var(--gold) 50%, var(--saffron) 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     animation: var(--animate-shimmer);
-  }
-  .ripple-ring::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 9999px;
-    border: 2px solid var(--water);
-    animation: ripple 2.4s ease-out infinite;
   }
 }
