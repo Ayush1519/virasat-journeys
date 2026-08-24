@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { reels, reelCategories } from "@/data/reels";
-import { destinations } from "@/data/destinations";
+import { reels } from "@/data/reels";
+import { destinations, CATEGORIES } from "@/data/destinations";
 import { ReelCard } from "./ReelCard";
 
 export function ReelsFeed() {
@@ -20,7 +20,7 @@ export function ReelsFeed() {
       if (stateFilter && r.state !== stateFilter) return false;
       if (cityFilter && r.city !== cityFilter) return false;
       if (categoryFilter && r.category !== categoryFilter) return false;
-      if (query && !`${r.title} ${r.description}`.toLowerCase().includes(query.toLowerCase())) return false;
+      if (query && !`${r.title} ${r.caption} ${r.creator}`.toLowerCase().includes(query.toLowerCase())) return false;
       return true;
     });
   }, [stateFilter, cityFilter, categoryFilter, query]);
@@ -38,7 +38,7 @@ export function ReelsFeed() {
         </select>
         <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)} className="input">
           <option value="">All Categories</option>
-          {reelCategories.map((c) => <option key={c} value={c}>{c}</option>)}
+          {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
         </select>
         <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search reels" className="input" />
       </div>

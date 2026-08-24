@@ -4,6 +4,18 @@ import img3 from "@/assets/site-hampi.jpg";
 import img4 from "@/assets/site-khajuraho.jpg";
 import img5 from "@/assets/hero-heritage.jpg";
 
+// Real uploaded photos for all 10 featured destinations
+import imgTajReal from "@/assets/site-taj-real.png";
+import imgHampiReal from "@/assets/site-hampi-real.png";
+import imgKhajurahoReal from "@/assets/site-khajuraho-real.jpg";
+import imgMysoreReal from "@/assets/site-mysore-real.jpg";
+import imgAmberReal from "@/assets/site-amber-real.png";
+import imgVaranasiReal from "@/assets/site-varanasi-real.jpg";
+import imgThikseyReal from "@/assets/site-thiksey-real.png";
+import imgMeenakshiReal from "@/assets/site-meenakshi-real.jpg";
+import imgPalolmReal from "@/assets/site-palolem-real.jpg";
+import imgMunnarReal from "@/assets/site-munnar-real.jpg";
+
 const pool = [img1, img2, img3, img4, img5];
 export const poolImage = (i: number) => pool[i % pool.length];
 
@@ -99,7 +111,7 @@ export const destinations: Destination[] = [
     category: "Heritage & Monuments",
     interests: ["Heritage", "History", "Photography"],
     coords: { lat: 27.1751, lng: 78.0421 },
-    image: poolImage(1),
+    image: imgTajReal,
     tagline: "A teardrop of love carved in marble",
     description:
       "The world's most famous mausoleum, built by Shah Jahan for Mumtaz Mahal. Sunrise turns the marble rose-pink.",
@@ -131,7 +143,7 @@ export const destinations: Destination[] = [
     category: "Historical Places",
     interests: ["Heritage", "History", "Photography", "Adventure"],
     coords: { lat: 15.335, lng: 76.46 },
-    image: poolImage(2),
+    image: imgHampiReal,
     tagline: "The forgotten capital of an empire of gold",
     description:
       "Boulder-strewn ruins of the Vijayanagara Empire — musical pillars, stone chariots and sunset hills.",
@@ -163,7 +175,7 @@ export const destinations: Destination[] = [
     category: "Temples & Monasteries",
     interests: ["Heritage", "History", "Temples & Monasteries"],
     coords: { lat: 24.8318, lng: 79.9199 },
-    image: poolImage(3),
+    image: imgKhajurahoReal,
     tagline: "Poetry written in sandstone",
     description: "Chandela-era temples wrapped in some of the finest sculpture ever carved in India.",
     bestTime: "Oct – Mar",
@@ -193,7 +205,7 @@ export const destinations: Destination[] = [
     category: "Culture & Festivals",
     interests: ["Heritage", "Culture", "Festivals", "Photography"],
     coords: { lat: 12.3051, lng: 76.6551 },
-    image: poolImage(4),
+    image: imgMysoreReal,
     tagline: "A palace lit by a hundred thousand lamps",
     description: "Indo-Saracenic seat of the Wadiyars, ablaze with 97,000 bulbs every Sunday evening.",
     bestTime: "Sep – Feb (Dasara in Oct)",
@@ -224,7 +236,7 @@ export const destinations: Destination[] = [
     category: "Heritage & Monuments",
     interests: ["Heritage", "History", "Photography", "Culture"],
     coords: { lat: 26.9855, lng: 75.8513 },
-    image: poolImage(0),
+    image: imgAmberReal,
     tagline: "Honey-gold walls above a mirror lake",
     description: "Rajput hill fort of Man Singh I, crowned by the mirrored Sheesh Mahal.",
     bestTime: "Oct – Mar",
@@ -255,7 +267,7 @@ export const destinations: Destination[] = [
     category: "Culture & Festivals",
     interests: ["Culture", "History", "Photography", "Festivals"],
     coords: { lat: 25.3109, lng: 83.0107 },
-    image: poolImage(1),
+    image: imgVaranasiReal,
     tagline: "The oldest living city, breathing on the river",
     description: "88 ghats of prayer, music and smoke where the Ganga Aarti lights the dusk.",
     bestTime: "Oct – Mar",
@@ -284,7 +296,7 @@ export const destinations: Destination[] = [
     category: "Temples & Monasteries",
     interests: ["Temples & Monasteries", "Mountains", "Culture", "Photography"],
     coords: { lat: 34.0559, lng: 77.6674 },
-    image: poolImage(2),
+    image: imgThikseyReal,
     tagline: "A little Potala above the Indus",
     description: "Twelve-storey Gelug monastery with dawn prayers, horns and a 15 m Maitreya Buddha.",
     bestTime: "May – Sep",
@@ -313,7 +325,7 @@ export const destinations: Destination[] = [
     category: "Temples & Monasteries",
     interests: ["Temples & Monasteries", "Culture", "History", "Food"],
     coords: { lat: 9.9195, lng: 78.1193 },
-    image: poolImage(3),
+    image: imgMeenakshiReal,
     tagline: "Fourteen towers of a thousand painted gods",
     description: "The living heart of Madurai — Dravidian gopurams, hall of 1,000 pillars, nightly palanquin ritual.",
     bestTime: "Oct – Mar",
@@ -342,7 +354,7 @@ export const destinations: Destination[] = [
     category: "Beaches",
     interests: ["Beaches", "Nature", "Food", "Adventure"],
     coords: { lat: 15.01, lng: 74.0233 },
-    image: poolImage(4),
+    image: imgPalolmReal,
     tagline: "A crescent of palms and silent discos",
     description: "South Goa's calmest cove — kayaks at dawn, dolphins offshore, beach shacks at dusk.",
     bestTime: "Nov – Feb",
@@ -371,7 +383,7 @@ export const destinations: Destination[] = [
     category: "Mountains",
     interests: ["Mountains", "Nature", "Photography", "Food"],
     coords: { lat: 10.0889, lng: 77.0595 },
-    image: poolImage(0),
+    image: imgMunnarReal,
     tagline: "Green waves rolling into the mist",
     description: "Colonial tea estates at 1,600 m with Nilgiri tahr, spice trails and cloud-filled valleys.",
     bestTime: "Sep – Mar",

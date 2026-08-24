@@ -1,8 +1,8 @@
-import tajImg from "@/assets/site-amber.jpg"; // Taj image
-import hampiImg from "@/assets/site-taj.jpg"; // Hampi ruins
-import khajurahoImg from "@/assets/site-hampi.jpg"; // temple carvings
-import mysoreImg from "@/assets/site-khajuraho.jpg"; // illuminated palace
-import amberImg from "@/assets/hero-heritage.jpg"; // fort
+import tajImg from "@/assets/site-taj-real.png";
+import hampiImg from "@/assets/site-hampi-real.png";
+import khajurahoImg from "@/assets/site-khajuraho-real.jpg";
+import mysoreImg from "@/assets/site-mysore-real.jpg";
+import amberImg from "@/assets/site-amber-real.png";
 
 export type HeritageSite = {
   id: string;
