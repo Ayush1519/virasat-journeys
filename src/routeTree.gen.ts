@@ -9,6 +9,8 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TravelGuideRouteImport } from './routes/travel-guide'
+import { Route as ReelsRouteImport } from './routes/reels'
 import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as MemoriesRouteImport } from './routes/memories'
 import { Route as MapRouteImport } from './routes/map'
@@ -19,6 +21,16 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SiteSiteIdRouteImport } from './routes/site.$siteId'
 
+const TravelGuideRoute = TravelGuideRouteImport.update({
+  id: '/travel-guide',
+  path: '/travel-guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReelsRoute = ReelsRouteImport.update({
+  id: '/reels',
+  path: '/reels',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QuizRoute = QuizRouteImport.update({
   id: '/quiz',
   path: '/quiz',
@@ -74,6 +86,8 @@ export interface FileRoutesByFullPath {
   '/map': typeof MapRoute
   '/memories': typeof MemoriesRoute
   '/quiz': typeof QuizRoute
+  '/reels': typeof ReelsRoute
+  '/travel-guide': typeof TravelGuideRoute
   '/site/$siteId': typeof SiteSiteIdRoute
 }
 export interface FileRoutesByTo {
@@ -85,6 +99,8 @@ export interface FileRoutesByTo {
   '/map': typeof MapRoute
   '/memories': typeof MemoriesRoute
   '/quiz': typeof QuizRoute
+  '/reels': typeof ReelsRoute
+  '/travel-guide': typeof TravelGuideRoute
   '/site/$siteId': typeof SiteSiteIdRoute
 }
 export interface FileRoutesById {
@@ -97,6 +113,8 @@ export interface FileRoutesById {
   '/map': typeof MapRoute
   '/memories': typeof MemoriesRoute
   '/quiz': typeof QuizRoute
+  '/reels': typeof ReelsRoute
+  '/travel-guide': typeof TravelGuideRoute
   '/site/$siteId': typeof SiteSiteIdRoute
 }
 export interface FileRouteTypes {
@@ -110,6 +128,8 @@ export interface FileRouteTypes {
     | '/map'
     | '/memories'
     | '/quiz'
+    | '/reels'
+    | '/travel-guide'
     | '/site/$siteId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -121,6 +141,8 @@ export interface FileRouteTypes {
     | '/map'
     | '/memories'
     | '/quiz'
+    | '/reels'
+    | '/travel-guide'
     | '/site/$siteId'
   id:
     | '__root__'
@@ -132,6 +154,8 @@ export interface FileRouteTypes {
     | '/map'
     | '/memories'
     | '/quiz'
+    | '/reels'
+    | '/travel-guide'
     | '/site/$siteId'
   fileRoutesById: FileRoutesById
 }
@@ -144,11 +168,27 @@ export interface RootRouteChildren {
   MapRoute: typeof MapRoute
   MemoriesRoute: typeof MemoriesRoute
   QuizRoute: typeof QuizRoute
+  ReelsRoute: typeof ReelsRoute
+  TravelGuideRoute: typeof TravelGuideRoute
   SiteSiteIdRoute: typeof SiteSiteIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/travel-guide': {
+      id: '/travel-guide'
+      path: '/travel-guide'
+      fullPath: '/travel-guide'
+      preLoaderRoute: typeof TravelGuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reels': {
+      id: '/reels'
+      path: '/reels'
+      fullPath: '/reels'
+      preLoaderRoute: typeof ReelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/quiz': {
       id: '/quiz'
       path: '/quiz'
@@ -224,6 +264,8 @@ const rootRouteChildren: RootRouteChildren = {
   MapRoute: MapRoute,
   MemoriesRoute: MemoriesRoute,
   QuizRoute: QuizRoute,
+  ReelsRoute: ReelsRoute,
+  TravelGuideRoute: TravelGuideRoute,
   SiteSiteIdRoute: SiteSiteIdRoute,
 }
 export const routeTree = rootRouteImport
