@@ -15,11 +15,13 @@ import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as MemoriesRouteImport } from './routes/memories'
 import { Route as MapRouteImport } from './routes/map'
 import { Route as HelpRouteImport } from './routes/help'
+import { Route as GuideRouteImport } from './routes/guide'
 import { Route as ExploreRouteImport } from './routes/explore'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SiteSiteIdRouteImport } from './routes/site.$siteId'
+import { Route as PlacePlaceIdRouteImport } from './routes/place.$placeId'
 
 const TravelGuideRoute = TravelGuideRouteImport.update({
   id: '/travel-guide',
@@ -51,6 +53,11 @@ const HelpRoute = HelpRouteImport.update({
   path: '/help',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GuideRoute = GuideRouteImport.update({
+  id: '/guide',
+  path: '/guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ExploreRoute = ExploreRouteImport.update({
   id: '/explore',
   path: '/explore',
@@ -76,18 +83,25 @@ const SiteSiteIdRoute = SiteSiteIdRouteImport.update({
   path: '/site/$siteId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlacePlaceIdRoute = PlacePlaceIdRouteImport.update({
+  id: '/place/$placeId',
+  path: '/place/$placeId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/explore': typeof ExploreRoute
+  '/guide': typeof GuideRoute
   '/help': typeof HelpRoute
   '/map': typeof MapRoute
   '/memories': typeof MemoriesRoute
   '/quiz': typeof QuizRoute
   '/reels': typeof ReelsRoute
   '/travel-guide': typeof TravelGuideRoute
+  '/place/$placeId': typeof PlacePlaceIdRoute
   '/site/$siteId': typeof SiteSiteIdRoute
 }
 export interface FileRoutesByTo {
@@ -95,12 +109,14 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/explore': typeof ExploreRoute
+  '/guide': typeof GuideRoute
   '/help': typeof HelpRoute
   '/map': typeof MapRoute
   '/memories': typeof MemoriesRoute
   '/quiz': typeof QuizRoute
   '/reels': typeof ReelsRoute
   '/travel-guide': typeof TravelGuideRoute
+  '/place/$placeId': typeof PlacePlaceIdRoute
   '/site/$siteId': typeof SiteSiteIdRoute
 }
 export interface FileRoutesById {
@@ -109,12 +125,14 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/explore': typeof ExploreRoute
+  '/guide': typeof GuideRoute
   '/help': typeof HelpRoute
   '/map': typeof MapRoute
   '/memories': typeof MemoriesRoute
   '/quiz': typeof QuizRoute
   '/reels': typeof ReelsRoute
   '/travel-guide': typeof TravelGuideRoute
+  '/place/$placeId': typeof PlacePlaceIdRoute
   '/site/$siteId': typeof SiteSiteIdRoute
 }
 export interface FileRouteTypes {
@@ -124,12 +142,14 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/explore'
+    | '/guide'
     | '/help'
     | '/map'
     | '/memories'
     | '/quiz'
     | '/reels'
     | '/travel-guide'
+    | '/place/$placeId'
     | '/site/$siteId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -137,12 +157,14 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/explore'
+    | '/guide'
     | '/help'
     | '/map'
     | '/memories'
     | '/quiz'
     | '/reels'
     | '/travel-guide'
+    | '/place/$placeId'
     | '/site/$siteId'
   id:
     | '__root__'
@@ -150,12 +172,14 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/explore'
+    | '/guide'
     | '/help'
     | '/map'
     | '/memories'
     | '/quiz'
     | '/reels'
     | '/travel-guide'
+    | '/place/$placeId'
     | '/site/$siteId'
   fileRoutesById: FileRoutesById
 }
@@ -164,12 +188,14 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   ExploreRoute: typeof ExploreRoute
+  GuideRoute: typeof GuideRoute
   HelpRoute: typeof HelpRoute
   MapRoute: typeof MapRoute
   MemoriesRoute: typeof MemoriesRoute
   QuizRoute: typeof QuizRoute
   ReelsRoute: typeof ReelsRoute
   TravelGuideRoute: typeof TravelGuideRoute
+  PlacePlaceIdRoute: typeof PlacePlaceIdRoute
   SiteSiteIdRoute: typeof SiteSiteIdRoute
 }
 
@@ -217,6 +243,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HelpRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/guide': {
+      id: '/guide'
+      path: '/guide'
+      fullPath: '/guide'
+      preLoaderRoute: typeof GuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/explore': {
       id: '/explore'
       path: '/explore'
@@ -252,6 +285,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SiteSiteIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/place/$placeId': {
+      id: '/place/$placeId'
+      path: '/place/$placeId'
+      fullPath: '/place/$placeId'
+      preLoaderRoute: typeof PlacePlaceIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -260,12 +300,14 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   ExploreRoute: ExploreRoute,
+  GuideRoute: GuideRoute,
   HelpRoute: HelpRoute,
   MapRoute: MapRoute,
   MemoriesRoute: MemoriesRoute,
   QuizRoute: QuizRoute,
   ReelsRoute: ReelsRoute,
   TravelGuideRoute: TravelGuideRoute,
+  PlacePlaceIdRoute: PlacePlaceIdRoute,
   SiteSiteIdRoute: SiteSiteIdRoute,
 }
 export const routeTree = rootRouteImport

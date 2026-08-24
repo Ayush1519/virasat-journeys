@@ -1,151 +1,73 @@
+import { destinations, type Category } from "./destinations";
+
 export type Reel = {
   id: string;
+  destinationId: string;
   title: string;
-  destinationId?: string; // link to destinations by id
-  siteId?: string; // link to heritage site id
+  caption: string;
+  creator: string;
+  music: string;
   state: string;
-  city?: string;
-  category: string;
-  description: string;
-  youtubeId: string; // short id for embedding
-  likes?: number;
-  comments?: number;
-  saved?: boolean;
+  city: string;
+  category: Category;
+  image: string;
+  likes: number;
+  comments: number;
+  shares: number;
+  durationSec: number;
 };
 
-export const reels: Reel[] = [
-  {
-    id: "r1",
-    title: "Sunrise at the Taj Mahal",
-    destinationId: "taj-mahal-agra",
-    siteId: "taj-mahal",
-    state: "Uttar Pradesh",
-    city: "Agra",
-    category: "Heritage & Monuments",
-    description: "Sunrise reflections and marble closeups.",
-    youtubeId: "mYt2Z1XbQp0",
-    likes: 1245,
-    comments: 78,
-  },
-  {
-    id: "r2",
-    title: "Hampi Stones & Sunsets",
-    destinationId: "hampi",
-    state: "Karnataka",
-    city: "Hospet",
-    category: "Historical Places",
-    description: "Boulders and ruins in golden light.",
-    youtubeId: "xYz9AbCdEf0",
-    likes: 932,
-    comments: 41,
-  },
-  {
-    id: "r3",
-    title: "Kerala Tea Trails — Munnar",
-    destinationId: "munnar",
-    state: "Kerala",
-    city: "Munnar",
-    category: "Mountains",
-    description: "Rolling tea gardens and cloudscape.",
-    youtubeId: "aBcDeFg1234",
-    likes: 560,
-    comments: 22,
-  },
-  {
-    id: "r4",
-    title: "Palolem Beach Vibes",
-    destinationId: "goa-palolem",
-    state: "Goa",
-    city: "Canacona",
-    category: "Beaches",
-    description: "Kayaks at dawn and shacks at dusk.",
-    youtubeId: "sh0rtId12345",
-    likes: 430,
-    comments: 18,
-  },
-  {
-    id: "r5",
-    title: "Varanasi Aarti — Evening Ritual",
-    destinationId: "varanasi-ghats",
-    state: "Uttar Pradesh",
-    city: "Varanasi",
-    category: "Culture & Festivals",
-    description: "River prayers and lamps at dusk.",
-    youtubeId: "gHiJkL67890",
-    likes: 2100,
-    comments: 199,
-  },
-  {
-    id: "r6",
-    title: "Living Root Bridges — Meghalaya",
-    destinationId: "shillong-cherrapunji",
-    state: "Meghalaya",
-    city: "Cherrapunji",
-    category: "Hidden Gems",
-    description: "Bridges grown over decades by communities.",
-    youtubeId: "lrBridge001",
-    likes: 315,
-    comments: 12,
-  },
-  {
-    id: "r7",
-    title: "Kaziranga Safari — One-horned Rhino",
-    destinationId: "kaziranga",
-    state: "Assam",
-    city: "Golaghat",
-    category: "Nature & Wildlife",
-    description: "Jeep safaris and grasslands.",
-    youtubeId: "rhinoSaf001",
-    likes: 820,
-    comments: 65,
-  },
-  {
-    id: "r8",
-    title: "Thiksey Monastery Dawn Prayers",
-    destinationId: "leh-thiksey",
-    state: "Ladakh",
-    city: "Leh",
-    category: "Temples & Monasteries",
-    description: "Monks, horns and mountain vistas.",
-    youtubeId: "thiksey001",
-    likes: 480,
-    comments: 31,
-  },
-  {
-    id: "r9",
-    title: "Konark — Wheels of Stone",
-    destinationId: "konark",
-    state: "Odisha",
-    city: "Konark",
-    category: "Heritage & Monuments",
-    description: "Carvings and coastal wind.",
-    youtubeId: "konark001",
-    likes: 270,
-    comments: 9,
-  },
-  {
-    id: "r10",
-    title: "Rann Utsav Nights",
-    destinationId: "rann-of-kutch",
-    state: "Gujarat",
-    city: "Bhuj",
-    category: "Culture & Festivals",
-    description: "Tent cities, folk music and crafts.",
-    youtubeId: "rann001",
-    likes: 999,
-    comments: 120,
-  },
-];
+const captions: Record<string, { title: string; caption: string; music: string }> = {
+  "taj-mahal-agra": { title: "Sunrise at the Taj", caption: "Reached at 5:40 AM — the marble turns rose-pink for about ten minutes. Go early, skip the crowd. ✨", music: "Raga Bhairav · Sitar Sunrise" },
+  hampi: { title: "Boulder city of kings", caption: "Cycling through Hampi's ruins feels like riding through a forgotten empire. 🚲", music: "Carnatic Veena Loop" },
+  khajuraho: { title: "Stone that breathes", caption: "Every inch of these temple walls is carved. A thousand years and still sharp. 🪨", music: "Bansuri Dreams" },
+  "mysore-palace": { title: "1,00,000 bulbs", caption: "Sunday 7 PM, the whole palace lights up at once. Goosebumps. 💡", music: "Nadaswaram Royal" },
+  "amber-fort": { title: "Mirror palace magic", caption: "One candle inside Sheesh Mahal turns into a thousand stars. 🕯️", music: "Rajasthani Folk Beat" },
+  "varanasi-ghats": { title: "Ganga Aarti", caption: "Boat seat at 6 PM. Bells, fire, and the whole river glowing. 🔥", music: "Shiv Tandav Chant" },
+  "leh-thiksey": { title: "Morning prayers at Thiksey", caption: "Monks, long horns, butter tea at 3,600 m. Nothing prepares you. 🏔️", music: "Tibetan Horn Meditation" },
+  "meenakshi-madurai": { title: "Colours of Meenakshi", caption: "14 gopurams, 33,000 sculptures. Look up until your neck hurts. 🌈", music: "Temple Nadaswaram" },
+  "goa-palolem": { title: "Palolem, no filter", caption: "Kayak out at sunset and the whole bay goes gold. 🛶", music: "Goa Sunset Chill" },
+  munnar: { title: "Tea carpet hills", caption: "Layers of green all the way to the clouds. Chai tastes different here. 🍃", music: "Kerala Rain Flute" },
+  jaisalmer: { title: "The living golden fort", caption: "People still live inside this 12th-century fort. Camel ride into the dunes after. 🐫", music: "Manganiyar Desert Folk" },
+  konark: { title: "The chariot of the Sun", caption: "24 stone wheels that still tell time. Engineering from 1250 CE. ☀️", music: "Odissi Rhythm" },
+  kaziranga: { title: "One-horned giants", caption: "Jeep safari, 6 AM mist, and three rhinos before breakfast. 🦏", music: "Assam Bihu Drums" },
+  tawang: { title: "Roof of Arunachal", caption: "India's largest monastery, wrapped in prayer flags and clouds. 🎏", music: "Monpa Chant" },
+  "ajanta-ellora": { title: "Carved from one rock", caption: "Kailasa temple was chiselled top-down out of a single hill. Wild. ⛏️", music: "Ancient Cave Echo" },
+  "rann-of-kutch": { title: "White desert, full moon", caption: "Endless salt, zero horizon. Rann Utsav nights are unreal. 🌕", music: "Kutchi Folk Sarangi" },
+  "spiti-key": { title: "Key Monastery, Spiti", caption: "Cold desert, 4,166 m, and the quietest morning of my life. ❄️", music: "Himalayan Silence" },
+  sundarbans: { title: "Into the mangroves", caption: "Boat through tiger country. Saw pugmarks, not the tiger. Next time. 🐅", music: "Baul Boat Song" },
+  "andaman-radhanagar": { title: "Radhanagar blues", caption: "Asia's best beach and the water is actually that colour. 🐚", music: "Island Ukulele" },
+  "shillong-cherrapunji": { title: "Living root bridges", caption: "3,000 steps down. Bridges grown, not built, over 500 years. 🌉", music: "Khasi Guitar" },
+  "golden-temple": { title: "Langar for 100,000", caption: "Free meals, all day, every day. Sat in the kitchen and helped roll rotis. 🙏", music: "Gurbani Kirtan" },
+  "hyderabad-golconda": { title: "Clap at Fateh Darwaza", caption: "One clap here is heard a kilometre up at the hilltop pavilion. 👏", music: "Deccan Qawwali" },
+  "bodh-gaya": { title: "Under the Bodhi tree", caption: "Where it all began, 2,500 years ago. Monks from 20 countries in one courtyard. 🍃", music: "Pali Chant" },
+  pondicherry: { title: "French Quarter mornings", caption: "Yellow walls, bougainvillea, filter coffee. Cycle it early. 🚲", music: "Tamil-French Jazz" },
+};
 
-export const reelCategories = [
-  "Heritage & Monuments",
-  "Temples & Monasteries",
-  "Culture & Festivals",
-  "Nature & Wildlife",
-  "Food",
-  "Beaches",
-  "Mountains",
-  "Historical Places",
-  "Hidden Gems",
-  "Local Experiences",
-] as const;
+const creators = ["@yatra.diaries", "@heritagekid", "@ghumakkad", "@sitar.and.sneakers", "@bharat.frames", "@chai.and.chappals"];
+
+export const reels: Reel[] = destinations.map((d, i) => {
+  const c = captions[d.id] ?? {
+    title: d.name,
+    caption: d.tagline,
+    music: "Indian Folk Fusion",
+  };
+  return {
+    id: `reel-${d.id}`,
+    destinationId: d.id,
+    title: c.title,
+    caption: c.caption,
+    creator: creators[i % creators.length],
+    music: c.music,
+    state: d.state,
+    city: d.city,
+    category: d.category,
+    image: d.image,
+    likes: 1200 + ((i * 977) % 48000),
+    comments: 40 + ((i * 131) % 900),
+    shares: 15 + ((i * 71) % 400),
+    durationSec: 18 + (i % 5) * 7,
+  };
+});
+
+export const getReel = (id: string) => reels.find((r) => r.id === id);
